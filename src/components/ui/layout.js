@@ -1,6 +1,6 @@
 
 export default function Layout({children}) {
     return (
-        <div className="flex flex-col justify-center items-center">{children}</div>
+        <div className="p-8 rounded-lg shadow-md w-full max-w-md">{children}</div>
     )
 }

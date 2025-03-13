@@ -126,24 +126,35 @@ export default function QuizApp() {
     }
 
   return ( 
-     <div className="">
+     <div className="flex flex-col items-center justify-center h-screen bg-background text-foreground">
+      {/* <div className="mx-auto my-auto"> */}
         {isEnd ? (
         <Layout>
-            <Header text={"Try Again!"} />
-            <Button text={"try"} onClick={handleClickTry}/>
-            <span>score: {score}</span>
+            <Header number={"Try Again!"} position={"center"} />
+            <div className="grid gap-4 mt-8">
+              <Button text={"Try"} onClick={handleClickTry}/>
+            </div>
+            <div className="mt-4 text-right">
+              <span className="text-muted-foreground">Score: {score}</span>
+            </div>
         </Layout>
-        ):
+        ): (
         <Layout>
-            <Header text={answers[question]?.text} number={answers[question]?.number}/>
-            <Button text={answers[question]?.button1} onClick={(e) => handleClick(e, answers[question].button1)} />
-            <Button text={answers[question]?.button2} onClick={(e) => handleClick(e, answers[question].button2)} />
-            <Button text={answers[question]?.button3} onClick={(e) => handleClick(e, answers[question].button3)} />
-            <Button text={answers[question]?.button4} onClick={(e) => handleClick(e, answers[question].button4)} />
-            <span>score: {score}</span>
-        </Layout> 
-    }
-     </div>
+            <Header text={answers[question]?.text} number={answers[question]?.number} position={"left"} />
+            <div className="grid gap-4 mt-8">
+              <Button text={answers[question]?.button1} onClick={(e) => handleClick(e, answers[question].button1)} />
+              <Button text={answers[question]?.button2} onClick={(e) => handleClick(e, answers[question].button2)} />
+              <Button text={answers[question]?.button3} onClick={(e) => handleClick(e, answers[question].button3)} />
+              <Button text={answers[question]?.button4} onClick={(e) => handleClick(e, answers[question].button4)} />
+            </div>
+        
+        <div className="mt-4 text-right">
+          <span className="text-muted-foreground">Score: {score}</span>
+        </div>
+      </Layout>
+    )}
+    </div>
+    //  </div>
     )
   
 }
