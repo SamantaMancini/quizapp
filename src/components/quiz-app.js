@@ -7,7 +7,7 @@ import Button from "./ui/button";
 export default function QuizApp() {
     const [question, setQuestion] = useState(0)
     const [score, setScore] = useState(0)
-    const [isCorrect, setIsCorrect] = useState(false)
+    const [isEnd, setIsEnd] = useState(false)
 
     const answers = [
         {
@@ -111,15 +111,15 @@ export default function QuizApp() {
 
         }
         if (question == 9) {
-            setIsCorrect(true)
+            setIsEnd(true)
         }
        setQuestion(question + 1)
        console.log(correct)
     }
 
     const handleClickTry = () => {
-        if (isCorrect) {
-            setIsCorrect(false)
+        if (isEnd) {
+            setIsEnd(false)
             setQuestion(0)
             setScore(0)
         }
@@ -127,7 +127,7 @@ export default function QuizApp() {
 
   return ( 
      <div className="">
-        {isCorrect ? (
+        {isEnd ? (
         <Layout>
             <Header text={"Try Again!"} />
             <Button text={"try"} onClick={handleClickTry}/>
