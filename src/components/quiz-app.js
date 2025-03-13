@@ -57,7 +57,6 @@ export default function QuizApp() {
 
   return ( 
      <div className="flex flex-col items-center justify-center h-screen bg-background text-foreground">
-      {/* <div className="mx-auto my-auto"> */}
         {isEnd ? (
         <Layout>
             <Header number={"Try Again!"} position={"center"} />
